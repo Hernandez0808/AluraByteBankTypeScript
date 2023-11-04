@@ -3,7 +3,7 @@ import { Armazenador } from "./armazenador.js";
 export class Conta {
     nome;
     saldo = Armazenador.obter("saldo") || 0;
-    transacoes = JSON.parse(localStorage.getItem("transacoes"), (key, value) => {
+    transacoes = Armazenador.obter(("transacoes"), (key, value) => {
         if (key === "data") {
             return new Date(value);
         }
